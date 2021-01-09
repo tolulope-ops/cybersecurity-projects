@@ -34,12 +34,12 @@ Metricbeat record help monitor servers by collecting metrics from the system and
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| | Name    | Function       | IP Address | Operating System  |   |
-|---------|----------------|------------|-------------------|---|
-| Jumpbox | Gateway        | 10.0.0.4   | Linux             |   |
-| Web-1   | DVWA Webserver | 10.0.0.5   | Linux             |   |
-| Web-3   | DVWA Webserver | 10.0.0.7   | Linux             |   |
-| Elk     | Log server     | 10.1.0.5   | Linux             |   |
+| Name       | Function    | IP Address | Operating System |
+|------------|-------------|------------|------------------|
+| Jump box   | Gateway     | 10.0.0.4   |       Linux      |
+| Web-1      | DVWA server | 10.0.0.5   |       Linux      |
+| Web-3      | DVWA server | 10.0.0.7   |       Linux      |
+| ELK server | Log server  | 10.1.0.5   |       Linux      |
 
 ### Access Policies
 
@@ -52,14 +52,13 @@ Machines within the network can only be accessed by Jump box.
 The ELK machine allow to access from personal IP address through port 5601.
 
 A summary of the access policies in place can be found in the table below.
-| Name          | Publicly Accessible | Allowed IP Address |   |
-|---------------|---------------------|--------------------|---|
-| Jumpbox       | Yes                 | Personal           |   |
-| Load Balancer | No                  | Open               |   |
-| Web -1        | No                  | 10.0.0.5           |   |
-| Web -3        | No                  | 10.0.0.7           |   |
-| Elk Server    | Yes                 | Personal           |   |
-
+| Name          | Publicly Accessible | Allowed IP Address |
+|---------------|---------------------|--------------------|
+| Jumpbox       |         Yes         | 104.211.51.190     |
+| Load Balancer |          No         | Open               |
+| Web -1        |          No         | 10.0.0.5           |
+| Web -3        |          No         | 10.0.0.7           |
+| Elk Server    |         Yes         | 99.227.98.133      |
 
 ### Elk Configuration
 
