@@ -67,70 +67,22 @@ services running can be limited ,system installation and update can be streamlin
 
 The following implement the task: 
 install docker.io,pip3, and the docker module.
----
-- name: Config elk VM with Docker
-  hosts: elkservers
-  remote_user: sysadmin
-  become: true
-  tasks:
+[elk playbook File](https://github.com/tolulope-ops/cybersecurity-projects/blob/main/ansibles/elk.yml)
 
-    - name: Install docker.io
-      apt:
-        update_cache: yes
-        force_apt_get: yes
-        name: docker.io
-        state: present
-
-    - name: Increase vitual memory
-      sysctl:
-        name: vm.max_map_count
-        value: '262144'
-        state: present
-        reload: yes
-
-    - name: Install python3-pip3
-      apt:
-        force_apt_get: yes
-        name: python3-pip
-        state: present
-
-    - name: Install Docker python module
-      pip:
-        name: docker
-        state: present
-
-    - name: download and launch a docker elk container
-      docker_container:
-        name: elk
-        image: sebp/elk:761
-        state: started
-        restart_policy: always
-        published_ports:
-          - 5601:5601
-          - 9200:9200
-          - 5400:5400
-
-    - name: Enable docker service
-      systemd:
-        name: docker
-        enabled: yes
-		
- The following screen shot display the result of 'docker ps' after sucessfully configuring the ELK instance.
- 
- 
+     
  Target machines and Beats
  The ELK server configured to monitor the folowing machines 
  web-1 (10.0.0.5)
  web-3 (10.0.0.7)
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
+-  In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - ...
 - ...
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+[Docker output](https://github.com/tolulope-ops/cybersecurity-projects/blob/main/diagrams/ELKserver.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
