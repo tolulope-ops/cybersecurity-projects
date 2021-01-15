@@ -70,15 +70,11 @@ install docker.io,pip3, and the docker module.
 [elk playbook File](https://github.com/tolulope-ops/cybersecurity-projects/blob/main/ansibles/elk.yml)
 
      
- Target machines and Beats
- The ELK server configured to monitor the folowing machines 
- web-1 (10.0.0.5)
- web-3 (10.0.0.7)
-
 The playbook implements the following tasks:
--  In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+-  In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc.
+ Increase the virtual memory(for the virtul machine we will use to run the ELK server)
+ Uses systctl module 
+ Download and launches the docker container for ELK server
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -86,27 +82,42 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+ 
+ web-1 (10.0.0.5)
+ web-3 (10.0.0.7)
 
-We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+We have installed the following Beats on these machines
+
+ Filebeats 
+ Metricbeat 
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+
+ Filebeat is a log data shipper for local files.Installed as an agent on your server.Filebeat monitors the log 
+ directories or specific log files,tail the files and forward them either to Elasticsearch or Logstash for indexing. An
+ example of such are the logs produced from the MYSQL databasesupporting our application.
+ 
+ Metricbeat collects metrics and statistics on the sysytem. An example of such is cpu usage, which can be used to monitor 
+ the system health.
+ 
+ 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
+
 - Copy the configuration file from the ansible container to web VMs.
+
 - Update the /etc/ansible/host file to include the IP address of the ELK server VM and webservers
+
 - Run the playbook, and navigate to http://[ELK _VM_Public IP]:5601 to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook?
-   The Filebeat-Configuration 
- Where do you copy it?
- copy /etc/ansible/files/filebeat-config.yml to /etc/filebeat/filebeat.yml
+
+- _Which file is the playbook? The Filebeat-Configuration 
+   
+ Where do you copy it? copy /etc/ansible/files/filebeat-config.yml to /etc/filebeat/filebeat.yml
+ 
 
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
   Update filebeat-config.yml -- specify which machine to install by updating the host files with ip addresses of web/elk servers and selecting which group to run on in ansible
@@ -114,6 +125,6 @@ _TODO: Answer the following questions to fill in the blanks:_
 - _Which URL do you navigate to in order to check that the ELK server is running?
    http://[ELK _VM_Public IP]:5601 
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc.
+_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, 
 
  
