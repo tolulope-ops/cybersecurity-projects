@@ -127,11 +127,14 @@ SSH into the control node and follow the steps below:
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, 
   
-  To run the playbook file, use the following commands:
+ To run the playbook file, use the following commands:
 - `ansible-playbook filebeat-playbook.yml`
-  To verify the playbook:
+
+ To verify the playbook:
 - `ansible-playbook --syntax-check`
-  To check the status and start filebeat and metric services:
+  
+ To check the status and start filebeat and metric services:
+  
 - `service filebeat status`
 - `service filebeat start`
 - `service metricbeat status`
